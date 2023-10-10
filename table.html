@@ -15,12 +15,12 @@
         </header>
         <div class="content">
             <div class="sidebar">
-                <div class="sidebar_menu">
-                    <a href="./index.html" class="menu_item">Home</a>
-                    <a href="" class="menu_item">Menu</a>
-                    <a href="" class="menu_item">Table</a>
-                    <a href="" class="menu_item">Contact</a>
-                    <a href="" class="menu_item">New</a>
+                <div class="sidebar__menu">
+                    <a href="./index.html" class="menu__item">Home</a>
+                    <a href="" class="menu__item">Menu</a>
+                    <a href="" class="menu__item">Table</a>
+                    <a href="" class="menu__item">Contact</a>
+                    <a href="" class="menu__item">New</a>
                 </div>
             </div>
             <div class="content-Right grid">
@@ -49,79 +49,7 @@
                             <span>4</span>
                         </div>
                     </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>5</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>6</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>7</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>8</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>9</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>10</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>11</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number" >
-                            <span>12</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>13</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>14</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>15</span>
-                        </div>
-                    </div>
-                    <div class="table">
-                        <img src="./img/table.png" alt="">
-                        <div class="number">
-                            <span>16</span>
-                        </div>
-                    </div>
-                </div>  
+                </div>
             </div>  
         </div> 
         <div class="footer__two">
@@ -199,6 +127,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
     <div class="modal">
         <div class="modal__overlay"></div>
@@ -212,11 +141,19 @@
                     </div>
                 </div>
                 <div class="auth-form__menu">
-                    
                 </div>
                 <div class="btn_menu">
                     <div class="btn_order-add">
-                        <span class="btn_submit_order">Add food</span>
+                        <div class="btn_submit_order--add btn_submit_order">Add new food</div>
+                        <div class="modal__todoList">
+                            <div class="modal__overlay"></div>
+                            <div class="modal__body">
+                                <div class="addFood">
+                                    <input type="text" class="addFood__input">
+                                    <button class="addFood__btn">ADD</button>
+                                </div> 
+                            </div>
+                        </div>        
                     </div>
                     <div class="btn_order-remove">
                         <span class="btn_submit_order">Remove</span>

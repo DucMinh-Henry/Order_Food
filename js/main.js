@@ -10,21 +10,16 @@ const closeModal = $('.icon_close')
 const submitOrderRemove = $('.btn_order-remove')
 const submitOrder = $('.btn_order')
 
-
 // hiển thị menu và active table
 tables.forEach((table) => {
     table.onclick = function() {
-        console.log(table);
         showModal.style.display = 'flex';
         closeModal.onclick = function(){
             showModal.style.display = 'none';
         }
         submitOrderRemove.onclick = function() {
-            table.classList.remove('active_table');
             showModal.style.display = 'none';
-            localStorage.removeItem('tasks', JSON.stringify(tasks))
-            renderTasks(tasks)
-            menuOrder.innerHTML = ''
+            table.classList.remove('active_table');
         }
         submitOrder.onclick = function() {
             console.log(table);
@@ -33,57 +28,71 @@ tables.forEach((table) => {
         }
         
         // thêm và xóa list food
-        const btnAddTabFood = $('.btn_order-add')
+        const btnAddShowtodoList = $('.btn_submit_order--add')
         const menuOrder = $('.auth-form__menu')
+        const showModalTodoList = $('.modal__todoList')
+        const tabNameEl = $('.addFood__input')
+        const btnAddTabFood = $('.addFood__btn')
 
-        const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+        const tasks = getTasksFromLocalStorage()
+        btnAddShowtodoList.addEventListener('click', function() {
+            showModalTodoList.style.display = 'flex';
+        });
         
+        const tabs = localStorage.getItem('tabs') ? JSON.parse(localStorage.getItem('tabs')) : [];
+        console.log(tabs);
         btnAddTabFood.addEventListener('click', function() {
-            tasks.push({name: menuOrder.innerHTML})
-            localStorage.setItem('tasks', JSON.stringify(tasks)) 
-            renderTasks(tasks)
-
-        })
+            showModalTodoList.removeAttribute('style');
+            const tabName = tabNameEl.value;
+            if (tabName) { 
+                tabs.push({ name: tabName }); 
+                tasks.push({ name: menuOrder.innerHTML, tabName: tabName }); 
+                tabNameEl.value = '';
+                localStorage.setItem('tabs', JSON.stringify(tabs));
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                renderTasks(tasks);
+            }
+        });
         function renderTasks(tasks = []) {
             let content = '<div>'
             tasks.forEach((task) => {
                 content += `
-                        <div class="menu_order">
-                            <div class="remove_food_order">
-                                <i class="fa-solid fa-xmark"></i>
+                <div class="menu_order">
+                    <div class="remove_food_order">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="menu_order_left">
+                        <i class="fa-solid fa-circle-user img_user"></i>
+                        <div class="name_food">${task.tabName}</div>
+                    </div>
+                    <div class="menu_order_right">
+                        <div class="navbar_list_food">
+                            <div class="icon_list">
+                                <i class="fa-solid fa-pen"></i>
                             </div>
-                            <div class="menu_order_left">
-                                <i class="fa-solid fa-circle-user img_user"></i>
-                                <div class="name_food"></div>
-                            </div>
-                            <div class="menu_order_right">
-                                <div class="navbar_list_food">
-                                    <div class="icon_list">
-                                        <i class="fa-solid fa-pen"></i>
+                            <div class="note">
+                                <div class="note__container">
+                                    <div class="note__header">
+                                        <i class="fa-solid fa-xmark"></i>
+                                        <h2 class="note__header--title">Note to restaurant</h2>
                                     </div>
-                                    <div class="list_food">
-                                        <div href="" class="item_food">
-                                            <span class="text_food">Khoai tây chiên</span>
-                                        </div>
-                                        <div href="" class="item_food">
-                                            <span class="text_food">Đùi gà chiên</span>
-                                        </div>
-                                        <div href="" class="item_food">
-                                            <span class="text_food">Mỳ cay</span>
-                                        </div>
-                                        <div href="" class="item_food">
-                                            <span class="text_food">Tokbukki</span>
-                                        </div>
+                                    <div class="line_title"></div>
+                                    <div class="note__content">
+                                        <h2 class="note__content--title">Optional</h2>
+                                        <textarea name="" id="note__content--input" rows="5" cols="20" placeholder="Add your request"></textarea>
+                                        <button>confirm</button>
                                     </div>
-                                </div>
-                                <div class="">
-                                    <i class="fa-solid fa-minus icon_minus"></i>
-                                    <span class="text_number">1</span>
-                                    <i class="fa-solid fa-plus icon_plus"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="line_list-menu"></div>
+                        <div class="">
+                            <i class="fa-solid fa-minus icon_minus"></i>
+                            <span class="text_number">0</span>
+                            <i class="fa-solid fa-plus icon_plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="line_list-menu"></div>
                 `
             })
             content += '</div>'
@@ -93,7 +102,9 @@ tables.forEach((table) => {
             removeIcon.forEach((button, index) => {
                 button.addEventListener('click', () => {
                     tasks.splice(index, 1);
+                    tabs.splice(index, 1);
                     localStorage.setItem('tasks', JSON.stringify(tasks));
+                    localStorage.setItem('tabs', JSON.stringify(tabs));
                     renderTasks(tasks);
                 });
             });
@@ -117,21 +128,17 @@ tables.forEach((table) => {
                     }
                 });
             });
-
-
-            const chooseFood = document.querySelectorAll('.item_food');
-            const nameFoodOrder = document.querySelectorAll('.text_food');
-            const nameFood = document.querySelector('.name_food')
-            chooseFood.forEach((button, index) => {
-                button.addEventListener('click', () => {
-                    const nameFood = button.closest('.menu_order').querySelector('.name_food');
-                    const currentFood = nameFoodOrder[index].innerText;
-                    nameFood.innerText = currentFood;
-                })
-            })
+        }
+        const savedTasks = getTasksFromLocalStorage();
+        if (savedTasks.length > 0) {
+            renderTasks(savedTasks);
         }
     }
 });
+
+function getTasksFromLocalStorage() {
+    return localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+}
 
 
 

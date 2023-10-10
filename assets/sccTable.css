@@ -62,7 +62,7 @@ header img {
     margin-left: 20px;
 }
 
-.sidebar_menu {
+.sidebar__menu {
     width: 60%;
     display: flex;
     background-color: #F3EDF7;
@@ -72,7 +72,7 @@ header img {
     
 }
 
-.menu_item {
+.menu__item {
     text-decoration: none;
     color: #000;
     font-size: 20px;
@@ -80,7 +80,7 @@ header img {
     border-radius: 5px;
 }
 
-.menu_item:hover {
+.menu__item:hover {
     background-color: aqua;
 }
 
@@ -338,42 +338,62 @@ header img {
 
 .navbar_list_food {
     position: relative;
+    margin-left: 10px;
 }
 
-.navbar_list_food:hover .list_food {
-    display: grid;
+.navbar_list_food:hover .note {
+    display: block;
 }
 
 .icon_list {
+    position: relative;
     cursor: pointer;
 }
 
-
-
-.list_food { 
-    display: flex;
-    flex-direction: column;
+.note {
     position: absolute;
-    z-index: 2;
-    top: 131%;
-    width: 200px;
-    right: -4px;
+    right: -2px;
     background-color: #fff;
     box-shadow: 0px 2px 6px 2px #b7b6b6;
-    border-radius: 5px;
+    border-radius: 5px;     
     display: none;
+    z-index: 1;
 }
 
-.list_food::before {
-    position: absolute;
-    content: "";
-    border-width: 10px 17px;
-    border-style: solid;
-    border-color: transparent;
-    right: 0px;
-    top: -14px;
-    display: block;
+.note__container {
+max-width: 300px;
 }
+
+.note__header {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.note__header--title {
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.note__content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.note__content--title {
+}
+
+#note__content--input {
+    margin: 5px 0;
+}
+
+.note__content button {
+    width: 100%;
+}
+
 
 .item_food {
     text-decoration: none;
@@ -424,6 +444,55 @@ header img {
     outline: none;
     color: #fff;
     display: flex;
+	line-height: 1.6rem;
+    justify-content: center;
+    align-items: center;
+	text-transform: uppercase;
+}
+
+.modal__todoList {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: fadeIn linear 0.1s;
+    display: none;
+}
+
+.addFood {
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.addFood__input {
+    border: 1px solid #E7E5EA;
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 1rem;
+    line-height: 1.6rem;
+}
+
+.addFood__btn {
+    padding: 5px 25px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: #4F77FF;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
 	line-height: 1.6rem;
     justify-content: center;
     align-items: center;
