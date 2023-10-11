@@ -1,0 +1,500 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ------------------------------------------ */
+
+#root {
+    display: block;
+}
+
+header img {
+    width: 100%;
+    height: 350px;
+}
+
+.content {
+    display: flex;
+    margin: 60px 40px 0 40px;
+}
+.sidebar {
+    width: 30%;
+    margin-left: 20px;
+}
+
+.sidebar__menu {
+    width: 60%;
+    display: flex;
+    background-color: #F3EDF7;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px 2px #b7b6b6;
+    
+}
+
+.menu__item {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    padding: 15px 15px 15px 20px;
+    border-radius: 5px;
+}
+
+.menu__item:hover {
+    background-color: aqua;
+}
+
+/* Table */
+.content-Right {
+    width: 70%;
+}
+
+.tables {
+    display: flex;
+    gap: 50px 30px;
+    flex-wrap: wrap;
+}
+.table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+}
+
+.table:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.table img {
+    position: relative;
+    color: aqua;
+}
+
+.number {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.number span {
+    font-size: 30px;
+}
+/* active */
+.active_table {
+    background-color: rgb(150, 207, 64);
+}
+
+/* footer */
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 90%;
+    display: flex;
+}
+
+.footer__two {
+    background-color: #292F3A;
+    position: relative;
+    z-index: 20;
+    margin-top: 80px;
+}
+
+.footer__content {
+    padding-top: 70px;
+    flex-wrap: wrap;
+}
+
+.footer__heading {
+    color: #E7E5EA;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    line-height: 43px;
+}
+
+.footer__logo-text {
+    color: #E7E5EA;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.footer__list li a {
+    color: #E7E5EA;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    line-height: 30px;
+}
+
+.footer__text-one {
+    color: #E7E5EA;
+    font-size: 1.0rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.footer__form {
+    display: flex;
+    margin-bottom: 15px;
+}
+.footer__form--input {
+    width: 100%;
+    border: 1px solid #E7E5EA;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+.footer__form-action {
+    margin-left: 10px;
+}
+
+.footer__text-two {
+    color: #E7E5EA;
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.footer__link {
+    display: flex;
+    width: 100%;
+    border-top: 1px solid var(--text-color);
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.footer__text {
+    color: #E7E5EA;
+    font-weight: 400;
+}
+
+.footer__item {
+    display: flex;
+    gap: 20px;
+}
+
+/* btn */
+
+.btn {
+    padding: 11px 27px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: #4F77FF;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    display: flex;
+	line-height: 1.6rem;
+    justify-content: center;
+    align-items: center;
+	text-transform: uppercase;
+}
+
+/* menu order */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: fadeIn linear 0.1s;
+    display: none;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    animation: growth linear 0.1s;
+}
+
+.auth-form {
+    width: 650px;
+    height: 650px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.line_title {
+    border: 1px solid #333;
+}
+
+.icon_close {
+    position: absolute;
+    right: 35px;
+    top: 16px;
+    font-size: 25px;
+    color: #888;
+    cursor: pointer;
+}
+
+.menu_order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    position: relative;
+}
+
+.remove_food_order {
+    position: absolute;
+    right: 9px;
+    top: 4px;
+    cursor: pointer;
+}
+
+.menu_order_left {
+    display: flex;
+    align-items: center;
+}
+
+.img_user {
+    font-size: 60px;
+}
+
+.name_food {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.menu_order_right {
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar_list_food {
+    position: relative;
+    margin-left: 10px;
+}
+
+.navbar_list_food:hover .note {
+    display: block;
+}
+
+.icon_list {
+    position: relative;
+    cursor: pointer;
+}
+
+.note {
+    position: absolute;
+    right: -2px;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px 2px #b7b6b6;
+    border-radius: 5px;     
+    display: none;
+    z-index: 1;
+}
+
+.note__container {
+max-width: 300px;
+}
+
+.note__header {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.note__header--title {
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.note__content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.note__content--title {
+}
+
+#note__content--input {
+    margin: 5px 0;
+}
+
+.note__content button {
+    width: 100%;
+}
+
+
+.item_food {
+    text-decoration: none;
+    padding: 5px 0;
+    color: #000;
+}
+
+.item_food:hover {
+    cursor: pointer;
+    background-color: rgba(204, 204, 204, 0.7);
+}
+
+.icon_minus {
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.text_number {
+    font-size: 20px;
+    margin: 0 8px;
+    padding: 0 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.icon_plus {
+    cursor: pointer;
+}
+
+.line_list-menu {
+    border: 1px solid #333;
+}
+
+.btn_menu {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-around;
+}
+
+.btn_submit_order {
+    padding: 11px 27px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: #4F77FF;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    display: flex;
+	line-height: 1.6rem;
+    justify-content: center;
+    align-items: center;
+	text-transform: uppercase;
+}
+
+.modal__todoList {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: fadeIn linear 0.1s;
+    display: none;
+}
+
+.addFood {
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.addFood__input {
+    border: 1px solid #E7E5EA;
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 1rem;
+    line-height: 1.6rem;
+}
+
+.addFood__btn {
+    padding: 5px 25px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: #4F77FF;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+	line-height: 1.6rem;
+    justify-content: center;
+    align-items: center;
+	text-transform: uppercase;
+}
