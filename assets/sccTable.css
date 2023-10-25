@@ -275,7 +275,7 @@ header img {
     border-radius: 5px;
     overflow: hidden;
     text-align: center;
-    padding: 20px;
+    padding: 20px 20px 70px 20px;
     overflow-x: hidden;
     overflow-y: scroll;
     white-space: nowrap;
@@ -299,6 +299,10 @@ header img {
     font-size: 25px;
     color: #888;
     cursor: pointer;
+}
+
+.auth-form__menu {
+    padding-bottom: 70px;
 }
 
 .menu_order {
@@ -429,8 +433,13 @@ max-width: 300px;
 
 .btn_menu {
     display: flex;
-    margin-top: 40px;
+    padding-top: 20px;
     justify-content: space-around;
+    position: fixed;
+    background-color: #fff;
+    width: 650px;
+    height: 70px;
+    bottom: 0px;
 }
 
 .btn_submit_order {
@@ -497,4 +506,48 @@ max-width: 300px;
     justify-content: center;
     align-items: center;
 	text-transform: uppercase;
+}
+
+.modal__confirmOrder {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: fadeIn linear 0.1s;
+    display: none;
+}
+
+.lists__foodOrdered {
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.confirmFood__remove {
+    position: absolute;
+    right: 9px;
+    top: 4px;
+    cursor: pointer;
+}
+
+.confirmFood__btn {
+    margin-top: 20px;
+}
+
+.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
 }
